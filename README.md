@@ -53,4 +53,6 @@ This hook is one of three in the paid **Agent Hook Starter** (also covers destru
 Want to check a hook of your own against a corpus of safe and dangerous tool calls? **Hook Proof** (9 USD) is a hook tester: https://loupeetlettres.gumroad.com/l/gvdarr
 Want more hook ideas beyond blocking (prompt checks, session context, post-edit checks, stop checks)? **Hook Cookbook** (8 USD): https://loupeetlettres.gumroad.com/l/dpehuq
 
-Both are sold by Loupe & Lettres, an AI-assisted shop; this free repository works without them.
+Running agents unattended overnight? **Night Shift Guardrails** (29 USD) adds a full guard for destructive shell commands, secret paths and an approval queue: https://loupeetlettres.gumroad.com/l/evxhuu
+
+These are sold by Loupe & Lettres, an AI-assisted shop; this free repository works without them.
