@@ -4,6 +4,20 @@ Loupe & Lettres — créé avec l'aide de l'IA (created with the help of AI). Th
 
 A single-file Python `PreToolUse` hook that refuses `git push --force`, `-f`, `+refspec` pushes, `--mirror` and deletion of protected remote branches when an AI coding agent proposes them. Plain pushes and tags pass.
 
+## Quick start in 30 seconds (Claude Code hooks, PreToolUse)
+
+1. Download `block_force_push.py` from this repository.
+2. Add it to your project's `.claude/settings.json` (full snippet below).
+3. Check that it works, without running any git command:
+
+```
+echo '{"tool_name":"Bash","tool_input":{"command":"git push --force origin main"}}' | python3 block_force_push.py ; echo $?
+```
+
+You should see a BLOCKED message and the exit code `2`. A plain `git push origin main` prints nothing and exits `0`.
+
+Topics covered: Claude Code hooks, PreToolUse guard, git safety for AI coding agents, force push protection.
+
 ## Install (Claude Code, `.claude/settings.json`)
 
 ```json
@@ -43,8 +57,12 @@ It is a seat belt, not a sandbox: a git alias, a script or a variable that build
 Leading shell redirections (including descriptor prefixes) and abbreviated dangerous
 push flags are refused conservatively. This can also refuse a harmless redirected
 command. Redirection tokens anywhere in a recognized Git command are also refused.
-Fixture tests do not establish an installed Claude Code session; that
-integration is unverified. Keep the host's ordinary permission checks enabled.
+On 2026-11-11 the hook was also run in one real Claude Code 2.1.322 session
+(PreToolUse hook with a Bash matcher, scratch repository): the agent's
+`git push --force origin main` was refused with the BLOCKED message and never ran;
+a plain `git push origin main` was not stopped by the hook. One short session is
+not long-term use, and hook behavior can change between Claude Code versions.
+Keep the host's ordinary permission checks enabled.
 
 ## More
 
@@ -53,6 +71,4 @@ This hook is one of three in the paid **Agent Hook Starter** (also covers destru
 Want to check a hook of your own against a corpus of safe and dangerous tool calls? **Hook Proof** (9 USD) is a hook tester: https://loupeetlettres.gumroad.com/l/gvdarr
 Want more hook ideas beyond blocking (prompt checks, session context, post-edit checks, stop checks)? **Hook Cookbook** (8 USD): https://loupeetlettres.gumroad.com/l/dpehuq
 
-Running agents unattended overnight? **Night Shift Guardrails** (29 USD) adds a full guard for destructive shell commands, secret paths and an approval queue: https://loupeetlettres.gumroad.com/l/evxhuu
-
-These are sold by Loupe & Lettres, an AI-assisted shop; this free repository works without them.
+Both are sold by Loupe & Lettres, an AI-assisted shop; this free repository works without them.
