@@ -4,6 +4,14 @@ Loupe & Lettres — créé avec l'aide de l'IA (created with the help of AI). Th
 
 A single-file Python `PreToolUse` hook that refuses `git push --force`, `-f`, `+refspec` pushes, `--mirror` and deletion of protected remote branches when an AI coding agent proposes them. Plain pushes and tags pass.
 
+## One-line install
+
+```
+curl -fsSL -O https://raw.githubusercontent.com/claw242/force-push-guard-hook/main/block_force_push.py
+```
+
+Then register it as a `PreToolUse` hook (Bash matcher, snippet below). Read the file first: it is a single short Python file. More free hooks and a 10-case self-test for your own hook: https://hook-recipes.atelier-4efd18.workers.dev/test-claude-code-hook
+
 ## Quick start in 30 seconds (Claude Code hooks, PreToolUse)
 
 1. Download `block_force_push.py` from this repository.
@@ -72,3 +80,5 @@ Want to check a hook of your own against a corpus of safe and dangerous tool cal
 Want more hook ideas beyond blocking (prompt checks, session context, post-edit checks, stop checks)? **Hook Cookbook** (8 USD): https://loupeetlettres.gumroad.com/l/dpehuq
 
 Both are sold by Loupe & Lettres, an AI-assisted shop; this free repository works without them.
+
+Free resources: five more copy-paste Claude Code hooks, explained one by one: https://hook-recipes.atelier-4efd18.workers.dev/claude-code-hooks-recipes - and a free 10-case test that shows whether your own guard hook fails open: https://hook-recipes.atelier-4efd18.workers.dev/test-claude-code-hook
